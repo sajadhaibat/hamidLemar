@@ -445,11 +445,12 @@
                     </ul>
                 </li>
                 <li class="header">EXTRA COMPONENTS</li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Widgets</span> <span class="badge badge-default float-right">3</span></a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Customers</span>
+                        </a>
                     <ul class="ml-menu">
-                        <li><a href="widgets-app.html">Apps Widgetse</a></li>
-                        <li><a href="widgets-data.html">Data Widgetse</a></li>
-                        <li><a href="widgets-chart.html">Chart Widgetse</a></li>
+                        <li><a href="widgets-app.html">Add Customer</a></li>
+                        <li><a href="widgets-data.html">Customers List</a></li>
+                        <li><a href="widgets-chart.html">Customers Payment</a></li>
                     </ul>
                 </li>
                 <li class="sm_menu_btm"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>Authentication</span> <span class="badge badge-default float-right">9</span></a>
@@ -491,4 +492,4 @@
             </ul>
         </div>
     </div>
-</aside>    
+</aside>
