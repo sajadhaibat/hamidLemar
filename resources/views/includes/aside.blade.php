@@ -448,7 +448,7 @@
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Customers</span>
                         </a>
                     <ul class="ml-menu">
-                        <li><a href="widgets-app.html">Add Customer</a></li>
+                        <li><a href="{{route('customers.create')}}">Add Customer</a></li>
                         <li><a href="widgets-data.html">Customers List</a></li>
                         <li><a href="widgets-chart.html">Customers Payment</a></li>
                     </ul>

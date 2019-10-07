@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 class CustomersController extends Controller
@@ -14,7 +15,7 @@ class CustomersController extends Controller
     public function index()
     {
         //
-        return 123;
+        //return 123;
     }
 
     /**
@@ -25,6 +26,7 @@ class CustomersController extends Controller
     public function create()
     {
         //
+        return view('customers.addcustomer');
     }
 
     /**
@@ -35,7 +37,14 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->address = $request->address;
+        $customer->phone = $request->phone;
+        $customer->poc = $request->poc;
+        $customer->save();
+        return redirect()->back()->with('message','Patient Added Successfully');
     }
 
     /**
