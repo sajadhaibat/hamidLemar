@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
+use App\Item;
+use App\Stock;
 use Illuminate\Http\Request;
 
-class CustomersController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::all();
-        return view("customers.customerslist", compact('customers'));
+        $stocks = Stock::all();
+        return view('stock.stocklist', compact('stocks'));
     }
 
     /**
@@ -25,8 +26,8 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
-        return view('customers.addcustomer');
+        $items = Item::all();
+        return view('stock.addtostock', compact('items'));
     }
 
     /**
@@ -37,13 +38,17 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = new Customer;
-        $customer->name = $request->name;
-        $customer->address = $request->address;
-        $customer->phone = $request->phone;
-        $customer->poc = $request->poc;
-        $customer->save();
-        return redirect()->back()->with('message','Customer Added Successfully');
+        $stock = new Stock();
+        $stock->item_id = $request->item;
+        $stock->part_number = $request->part_number;
+        $stock->quantity = $request->quantity;
+        $stock->buy_amount = $request->buy_amount;
+        $stock->sale_amount = $request->sale_amount;
+        $stock->item_location = $request->item_location;
+        $stock->details = $request->details;
+        $stock->date = $request->date;
+        $stock->save();
+        return redirect()->back()->with('message','New Porza Added Successfully');
     }
 
     /**

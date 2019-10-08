@@ -388,6 +388,15 @@
                         <li><a href="widgets-chart.html">Customers Payment</a></li>
                     </ul>
                 </li>
+                <li> <a href="{{route('items.index')}}"><i class="zmdi zmdi-home"></i><span>Items</span></a></li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Stock</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li><a href="{{route('stock.index')}}">Available in Stock</a></li>
+                        <li><a href="{{route('stock.create')}}">Add to Stock </a></li>
+{{--                        <li><a href="widgets-chart.html">Customers Payment</a></li>--}}
+                    </ul>
+                </li>
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span> <span class="badge badge-success float-right">7</span></a>
                     <ul class="ml-menu">
                         <li><a href="mail-inbox.html">Inbox</a></li>

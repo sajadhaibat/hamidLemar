@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
+use App\Item;
 use Illuminate\Http\Request;
 
-class CustomersController extends Controller
+class ItemsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::all();
-        return view("customers.customerslist", compact('customers'));
+        $items = Item::all();
+        return view('items.items', compact('items'));
+        //
     }
 
     /**
@@ -25,8 +26,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
-        return view('customers.addcustomer');
+
     }
 
     /**
@@ -37,13 +37,11 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        $customer = new Customer;
-        $customer->name = $request->name;
-        $customer->address = $request->address;
-        $customer->phone = $request->phone;
-        $customer->poc = $request->poc;
-        $customer->save();
-        return redirect()->back()->with('message','Customer Added Successfully');
+        $item = new Item();
+        $item->name = $request->item_name;
+        $item->description = $request->item_description;
+        $item->save();
+        return redirect()->back()->with('message','Item Added Successfully');
     }
 
     /**
