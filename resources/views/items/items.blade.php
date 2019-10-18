@@ -142,6 +142,8 @@
                                     <tr style="cursor: pointer;">
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Part Number</th>
+                                        <th>Item Location</th>
                                         <th>Description</th>
                                         <th>Actions</th>
                                     </tr>
@@ -151,6 +153,8 @@
                                     <tr data-id="1" style="cursor: pointer;">
                                         <td data-field="name">1</td>
                                         <td data-field="name">{{ $item->name }}</td>
+                                        <td data-field="name">{{ $item->part_number }}</td>
+                                        <td data-field="name">{{ $item->item_location }}</td>
                                         <td data-field="name">{{ $item->description }}</td>
                                         <td>
                                             <a class="button button-small edit" title="Edit">
@@ -179,7 +183,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h1 class="modal-title">Add New Labratory</h1>
+                <h3 class="modal-title">Add New Item</h3>
             </div>
             <div class="modal-body">
                 <form action="{{route('items.store')}}" enctype="multipart/form-data" method="post" id="labratory_form">
@@ -188,7 +192,14 @@
                     <div class="form-group">
                         <label>Item Name</label>
                         <input type="text" class="form-control" name="item_name" placeholder="Enter Item Name" required>
-
+                    </div>
+                    <div class="form-group">
+                        <label>Part Number</label>
+                        <input type="text" class="form-control" name="part_number" placeholder="Enter Item part number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Item Location</label>
+                        <input type="text" class="form-control" name="item_location" placeholder="Enter Item location" required>
                     </div>
                     <div class="form-group" id="total_fee_div">
                         <textarea type="number" class="form-control" name="item_description" placeholder="Enter Item Description"></textarea>

@@ -117,7 +117,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>Customers List</strong><small>See Customers Detail here.</small>  </h2>
+                        <h2><strong>Stock List</strong><small>See Stock Detail here.</small>  </h2>
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -125,12 +125,12 @@
                                 <thead>
                                 <tr>
                                     <th>Item</th>
-                                    <th>Part Number</th>
+{{--                                    <th>Part Number</th>--}}
                                     <th>Quantity</th>
                                     <th>Buy Amount</th>
                                     <th>Sale Amount</th>
                                     <th>Date</th>
-                                    <th>Details</th>
+                                    <th>Description</th>
                                     <th>See Details </th>
                                 </tr>
                                 </thead>
@@ -138,7 +138,7 @@
                                 @foreach($stocks as $stock)
                                     <tr>
                                         <td>{{ $stock->item->name }}</td>
-                                        <td>{{ $stock->part_number }}</td>
+    {{--                                        <td>{{ $stock->part_number }}</td>--}}
                                         <td>{{ $stock->quantity }}</td>
                                         <td>{{ $stock->buy_amount }}</td>
                                         <td>{{ $stock->sale_amount }}</td>

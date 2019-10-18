@@ -120,6 +120,12 @@
                         <h2><strong>Customers List</strong><small>See Customers Detail here.</small>  </h2>
                     </div>
                     <div class="body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn btn-primary btn-list" href="" data-toggle="modal" data-target="#customer-modal"> <i class="fa fa-plus"></i> Add New Customer</a>
+                            </div>
+                        </div>
+                        <hr>
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
@@ -159,6 +165,43 @@
     </div>
 </section>
 
+<div class="modal fade " id="customer-modal" tabindex="-1" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h3 class="modal-title">Add New Customer</h3>
+            </div>
+            <div class="modal-body">
+                <form  action="{{route('customers.store')}}"  method="post">
+                    <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>" />
+                    <div class="row clearfix">
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="User or Company name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Address</label>
+                                <input type="text" class="form-control" name="address" placeholder="Address" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Phone Number</label>
+                                <input type="number" class="form-control" name="phone" placeholder="Phone Number" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Point of Contact</label>
+                                <input type="text"  class="form-control" name="poc" placeholder="Point of Contact" required/>
+                            </div>
+                            <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
 
 <!-- Jquery Core Js -->
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->

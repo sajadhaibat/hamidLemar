@@ -140,10 +140,10 @@
                                                 @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Part Number</label>
-                                        <input type="number" class="form-control" name="part_number" placeholder="Part Number" required/>
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label>Part Number</label>--}}
+{{--                                        <input type="number" class="form-control" name="part_number" placeholder="Part Number" required/>--}}
+{{--                                    </div>--}}
                                     <div class="form-group">
                                         <label for="">Quantity</label>
                                         <input type="number" class="form-control" name="quantity" placeholder="quantity" required/>
@@ -156,10 +156,10 @@
                                         <label for="">Sale Amount</label>
                                         <input type="number"  class="form-control" name="sale_amount" placeholder="Sale Amount" required/>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Item Location</label>
-                                        <input type="text"  class="form-control" name="item_location" placeholder="Item Location" required/>
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="">Item Location</label>--}}
+{{--                                        <input type="text"  class="form-control" name="item_location" placeholder="Item Location" required/>--}}
+{{--                                    </div>--}}
                                     <div class="form-group">
                                         <label for="">Date</label>
                                         <input type="date"  class="form-control" name="date" required/>

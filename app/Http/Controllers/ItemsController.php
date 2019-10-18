@@ -39,6 +39,8 @@ class ItemsController extends Controller
     {
         $item = new Item();
         $item->name = $request->item_name;
+        $item->part_number = $request->part_number;
+        $item->item_location = $request->item_location;
         $item->description = $request->item_description;
         $item->save();
         return redirect()->back()->with('message','Item Added Successfully');

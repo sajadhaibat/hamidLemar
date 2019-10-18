@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
-use App\Stock;
+use App\Staff;
 use Illuminate\Http\Request;
 
-class StockController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stocks = Stock::all();
-        return view('stock.stocklist', compact('stocks'));
+        //
     }
 
     /**
@@ -26,8 +24,7 @@ class StockController extends Controller
      */
     public function create()
     {
-        $items = Item::all();
-        return view('stock.addtostock', compact('items'));
+        //
     }
 
     /**
@@ -38,26 +35,16 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        $stock = new Stock();
-        $stock->item_id = $request->item;
-//        $stock->part_number = $request->part_number;
-        $stock->quantity = $request->quantity;
-        $stock->buy_amount = $request->buy_amount;
-        $stock->sale_amount = $request->sale_amount;
-//        $stock->item_location = $request->item_location;
-        $stock->details = $request->details;
-        $stock->date = $request->date;
-        $stock->save();
-        return redirect()->back()->with('message','New Porza Added Successfully');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Staff $staff)
     {
         //
     }
@@ -65,10 +52,10 @@ class StockController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Staff $staff)
     {
         //
     }
@@ -77,10 +64,10 @@ class StockController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Staff $staff)
     {
         //
     }
@@ -88,10 +75,10 @@ class StockController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Staff $staff)
     {
         //
     }

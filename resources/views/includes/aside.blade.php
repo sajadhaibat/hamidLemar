@@ -383,7 +383,7 @@
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Customers</span>
                         </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('customers.create')}}">Add Customer</a></li>
+{{--                        <li><a href="{{route('customers.create')}}">Add Customer</a></li>--}}
                         <li><a href="{{route('customers.index')}}">Customers List</a></li>
                         <li><a href="widgets-chart.html">Customers Payment</a></li>
                     </ul>
@@ -397,17 +397,39 @@
 {{--                        <li><a href="widgets-chart.html">Customers Payment</a></li>--}}
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span> <span class="badge badge-success float-right">7</span></a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Invoices</span>
+                    </a>
                     <ul class="ml-menu">
-                        <li><a href="mail-inbox.html">Inbox</a></li>
-                        <li><a href="chat.html">Chat</a></li>
-                        <li><a href="events.html">Calendar</a></li>
-                        <li><a href="file-dashboard.html">File Manager</a></li>
-                        <li><a href="contact.html">Contact list</a></li>
-                        <li><a href="blog-dashboard.html">Blog</a></li>
-                        <li><a href="app-ticket.html">Support Ticket</a></li>
+                        <li><a href="{{route('stock.index')}}">Recevied Invoices</a></li>
+                        <li><a href="{{route('stock.create')}}">Cash Invoices </a></li>
+                        <li><a href="{{route('stock.create')}}">Credit Invoices </a></li>
                     </ul>
                 </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Expenses</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li><a href="{{route('stock.index')}}">Daily Expenses</a></li>
+                        <li><a href="{{route('stock.create')}}">Other Expenses</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Users</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li><a href="{{route('stock.index')}}">Register New User</a></li>
+                        <li><a href="{{route('stock.create')}}">Staffs</a></li>
+                    </ul>
+                </li>
+{{--                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span> <span class="badge badge-success float-right">7</span></a>--}}
+{{--                    <ul class="ml-menu">--}}
+{{--                        <li><a href="mail-inbox.html">Inbox</a></li>--}}
+{{--                        <li><a href="chat.html">Chat</a></li>--}}
+{{--                        <li><a href="events.html">Calendar</a></li>--}}
+{{--                        <li><a href="file-dashboard.html">File Manager</a></li>--}}
+{{--                        <li><a href="contact.html">Contact list</a></li>--}}
+{{--                        <li><a href="blog-dashboard.html">Blog</a></li>--}}
+{{--                        <li><a href="app-ticket.html">Support Ticket</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
 
             </ul>
         </div>
