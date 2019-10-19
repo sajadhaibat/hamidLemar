@@ -400,7 +400,8 @@
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Invoices</span>
                     </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('stock.index')}}">Recevied Invoices</a></li>
+                        <li><a href="{{route('recevied_orders.create')}}">Add New Order</a></li>
+                        <li><a href="{{route('recevied_orders.index')}}">Invoices</a></li>
                         <li><a href="{{route('stock.create')}}">Cash Invoices </a></li>
                         <li><a href="{{route('stock.create')}}">Credit Invoices </a></li>
                     </ul>

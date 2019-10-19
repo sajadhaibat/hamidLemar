@@ -19,4 +19,5 @@ Route::resource('items', 'ItemsController');
 Route::resource('stock', 'StockController');
 Route::resource('staff', 'StaffController');
 Route::resource('expenses', 'DailyExpenseController');
+Route::resource('recevied_orders', 'ReceviedOrderController');
 
