@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\DailyExpense;
 use App\Staff;
 use Illuminate\Http\Request;
 
-class StaffController extends Controller
+class DailyExpenseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class StaffController extends Controller
     public function index()
     {
         $staffs = Staff::all();
-        return view("users.staffs", compact('staffs'));
+        $expenses = DailyExpense::all();
+        return view('expenses.expenses', compact('expenses', 'staffs'));
     }
 
     /**
@@ -36,20 +38,16 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        $staff = new Staff();
-        $staff->name = $request->staff_name;
-        $staff->phone = $request->staff_number;
-        $staff->save();
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\DailyExpense  $dailyExpense
      * @return \Illuminate\Http\Response
      */
-    public function show(Staff $staff)
+    public function show(DailyExpense $dailyExpense)
     {
         //
     }
@@ -57,10 +55,10 @@ class StaffController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\DailyExpense  $dailyExpense
      * @return \Illuminate\Http\Response
      */
-    public function edit(Staff $staff)
+    public function edit(DailyExpense $dailyExpense)
     {
         //
     }
@@ -69,10 +67,10 @@ class StaffController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Staff  $staff
+     * @param  \App\DailyExpense  $dailyExpense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staff $staff)
+    public function update(Request $request, DailyExpense $dailyExpense)
     {
         //
     }
@@ -80,10 +78,10 @@ class StaffController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Staff  $staff
+     * @param  \App\DailyExpense  $dailyExpense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Staff $staff)
+    public function destroy(DailyExpense $dailyExpense)
     {
         //
     }

@@ -416,7 +416,7 @@
                     </a>
                     <ul class="ml-menu">
                         <li><a href="{{route('stock.index')}}">Register New User</a></li>
-                        <li><a href="{{route('stock.create')}}">Staffs</a></li>
+                        <li><a href="{{route('staff.index')}}">Staffs</a></li>
                     </ul>
                 </li>
 {{--                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span> <span class="badge badge-success float-right">7</span></a>--}}

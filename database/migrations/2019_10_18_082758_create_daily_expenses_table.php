@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStaffTable extends Migration
+class CreateDailyExpensesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) {
+        Schema::create('daily_expenses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->integer('phone');
+            $table->integer('staff_id');
+            $table->foreign('staff_id')
+                ->references('id')
+                ->on('staff');
+            $table->bigInteger('Amount');
+            $table->string('date');
+            $table->longText('description');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staff');
+        Schema::dropIfExists('daily_expenses');
     }
 }
