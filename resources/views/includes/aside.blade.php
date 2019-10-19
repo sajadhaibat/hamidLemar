@@ -408,7 +408,7 @@
                 <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Expenses</span>
                     </a>
                     <ul class="ml-menu">
-                        <li><a href="{{route('stock.index')}}">Daily Expenses</a></li>
+                        <li><a href="{{route('expenses.index')}}">Daily Expenses</a></li>
                         <li><a href="{{route('stock.create')}}">Other Expenses</a></li>
                     </ul>
                 </li>

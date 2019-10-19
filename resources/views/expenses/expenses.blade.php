@@ -12,6 +12,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Favicon-->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
     <!-- JQuery DataTable Css -->
     <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
     <!-- Custom Css -->
@@ -134,6 +135,7 @@
                                     <th>Amount</th>
                                     <th>Date</th>
                                     <th>Description</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -143,6 +145,16 @@
                                         <td>{{ $expense->amount }}</td>
                                         <td>{{ $expense->date }}</td>
                                         <td>{{ $expense->description }}</td>
+                                        <td>
+                                            <a class="button button-small edit" title="Edit">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </a>
+
+                                            <a class="button button-small edit" title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </a>
+                                        </td>
+
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -169,31 +181,33 @@
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>" />
                     <div class="row clearfix">
 
-                        <div class="form-group">
-                            <label>Staff</label>
-                            <select name="item" required>
-                                <option selected disabled value="">Select item</option>
-                                @foreach($staffs as $staff)
-                                    <option value="{{ $staff->id }}">{{ $staff->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="">Address</label>
-                                <input type="text" class="form-control" name="address" placeholder="Address" required/>
+                                <label>Items</label>
+                                <select class="form-control" name="staff_id" required>
+                                    <option selected disabled value="">Select item
+                                    @foreach($staffs as $staff)
+                                        <option value="{{ $staff->id }}">{{ $staff->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Phone Number</label>
-                                <input type="number" class="form-control" name="phone" placeholder="Phone Number" required/>
+                                <label for="">Amount</label>
+                                <input type="number" class="form-control" name="amount" placeholder="Buy Amount" required/>
                             </div>
                             <div class="form-group">
-                                <label for="">Point of Contact</label>
-                                <input type="text"  class="form-control" name="poc" placeholder="Point of Contact" required/>
+                                <label for="">Date</label>
+                                <input type="date"  class="form-control" name="date" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea  class="form-control" name="description" placeholder="Description" required/></textarea>
                             </div>
                             <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Save</button>
                         </div>
                     </div>
                 </form>
+
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

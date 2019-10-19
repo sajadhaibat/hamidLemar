@@ -38,7 +38,13 @@ class DailyExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $expense = new DailyExpense();
+        $expense->staff_id = $request->staff_id;
+        $expense->amount = $request->amount;
+        $expense->date = $request->date;
+        $expense->description = $request->description;
+        $expense->save();
+        return redirect()->back();
     }
 
     /**
