@@ -11,6 +11,9 @@
 |
 */
 
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('index');
 });
@@ -21,3 +24,4 @@ Route::resource('staff', 'StaffController');
 Route::resource('expenses', 'DailyExpenseController');
 Route::resource('recevied_orders', 'ReceviedOrderController');
 
+Route::get('editcustomer/{id}','CustomerController@edit');

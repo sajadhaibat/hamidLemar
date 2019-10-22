@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CustomersController extends Controller
 {
@@ -43,7 +44,8 @@ class CustomersController extends Controller
         $customer->phone = $request->phone;
         $customer->poc = $request->poc;
         $customer->save();
-        return redirect()->back()->with('message','Customer Added Successfully');
+        Session::flash('message','Customer Added Successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -65,19 +67,18 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+      $data = Customer::Find($id);
+      return Response($data);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request)
     {
-        //
+       $customer = Customer::findOrFail($request->id);
+       $customer->update($request->all());
+        Session::flash('message','Customer Edited Successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -88,6 +89,9 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+        Session::flash('message','Successfully Deleted!');
+        return  redirect()->back();
     }
 }

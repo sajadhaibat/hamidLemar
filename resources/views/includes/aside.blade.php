@@ -369,12 +369,7 @@
                             <a href="profile.html"><img src="assets/images/profile_av.jpg" alt="User"></a>
                         </div>
                         <div class="detail">
-                            <h6>Michael</h6>
-                            <p class="m-b-0">info@example.com</p>
-                            <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i class="zmdi zmdi-facebook-box"></i></a>
-                            <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i class="zmdi zmdi-linkedin-box"></i></a>
-                            <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i class="zmdi zmdi-twitter-box"></i></a>
+                            <h6>Admin</h6>
                         </div>
                     </div>
                 </li>
