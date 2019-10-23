@@ -1,5 +1,4 @@
-<form  action="{{route('customers.store')}}"  method="post">
-    <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>" />
+<
     <div class="row clearfix">
 
         <div class="col-sm-12">
@@ -19,7 +18,10 @@
                 <label for="">Point of Contact</label>
                 <input type="text"  class="form-control" name="poc" placeholder="Point of Contact" required id="poc"/>
             </div>
-            <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Save</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
-</form>
+

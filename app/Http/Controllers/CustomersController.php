@@ -81,17 +81,12 @@ class CustomersController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $customer = Customer::findOrFail($id);
         $customer->delete();
-        Session::flash('message','Successfully Deleted!');
+        Session::flash('message','Customer Successfully Deleted!');
         return  redirect()->back();
     }
 }

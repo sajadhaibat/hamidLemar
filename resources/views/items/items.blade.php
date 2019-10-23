@@ -45,8 +45,11 @@
                     </div>
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <a class="btn btn-primary btn-list" href="" data-toggle="modal" data-target="#item-modal"> <i class="fa fa-plus"></i> Add Item</a>
+                            </div>
+                            <div class="col-md-8">
+                                @include('includes.successmessages')
                             </div>
                         </div>
                         <div class="row">
@@ -72,15 +75,19 @@
                                         <td data-field="name">{{ $item->item_location }}</td>
                                         <td data-field="name">{{ $item->description }}</td>
                                         <td>
-                                            <a class="button button-small edit" title="Edit" style="color: green">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </a>
-                                        </td>
-                                    <td>
-
-                                            <a class="button button-small edit" title="Delete" style="color:red;">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </a>
+                                            <button class="btn btn-success  btn-sm"
+                                                     data-myid="{{$item->id}}"
+                                                     data-myname="{{$item->name}}"
+                                                     data-mypartno="{{$item->part_number}}"
+                                                     data-mylocation="{{$item->item_location}}"
+                                                     data-mydescription="{{$item->description}}"
+                                                     style="color: white"  data-toggle="modal" data-target="#edit-item-modal">Edit <i class="zmdi zmdi-edit" style="color: white"></i></button></td>
+                                        <td>
+                                            <form action="{{route('items.destroy',$item->id)}}" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button class="btn btn-danger  btn-sm">Delete <i class="zmdi zmdi-delete "></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                         @endforeach
@@ -105,36 +112,59 @@
             <div class="modal-body">
                 <form action="{{route('items.store')}}" enctype="multipart/form-data" method="post" id="labratory_form">
                     <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>" />
+                      @include('includes.item_form')
 
-                    <div class="form-group">
-                        <label>Item Name</label>
-                        <input type="text" class="form-control" name="item_name" placeholder="Enter Item Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Part Number</label>
-                        <input type="text" class="form-control" name="part_number" placeholder="Enter Item part number" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Item Location</label>
-                        <input type="text" class="form-control" name="item_location" placeholder="Enter Item location" required>
-                    </div>
-                    <div class="form-group" id="total_fee_div">
-                        <textarea type="number" class="form-control" name="item_description" placeholder="Enter Item Description"></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Save changes</button>
-
-                    </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
 
+<div class="modal fade " id="edit-item-modal" tabindex="-1" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h3 class="modal-title">Edit Item</h3>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('items.update','id')}}" enctype="multipart/form-data" method="post" >
+                    {{csrf_field()}}
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="id" id="item_id" value="">
+                    @include('includes.item_form')
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
 <!-- Jquery Core Js -->
 @include('includes.scripts')
+
+<script>
+    $("#edit-item-modal").on('show.bs.modal',function (event) {
+
+        var button = $(event.relatedTarget);
+        var id = button.data('myid');
+        var item_name = button.data('myname');
+        var part_number = button.data('mypartno');
+        var item_location = button.data('mylocation');
+        var item_description = button.data('mydescription');
+
+        var modal = $(this)
+        modal.find('.modal-body #item_id').val(id);
+        modal.find('.modal-body #item_name').val(item_name);
+        modal.find('.modal-body #part_number').val(part_number);
+        modal.find('.modal-body #item_location').val(item_location);
+        modal.find('.modal-body #item_description').val(item_description);
+    })
+</script>
+
+
+
 </body>
 
 </html>

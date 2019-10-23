@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ItemsController extends Controller
 {
@@ -75,9 +77,12 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $customer = Item::findOrFail($request->id);
+        $customer->update($request->all());
+        Session::flash('message','Item Edited Successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -88,6 +93,9 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Item::findOrFail($id);
+        $customer->delete();
+        Session::flash('message','Item Successfully Deleted!');
+        return  redirect()->back();
     }
 }
