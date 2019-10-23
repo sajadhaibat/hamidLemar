@@ -67,9 +67,10 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php  $id = 1; ?>
                                     @foreach($items as $item)
                                     <tr data-id="1" style="cursor: pointer;">
-                                        <td data-field="name">1</td>
+                                        <td data-field="name">{{$id++}}</td>
                                         <td data-field="name">{{ $item->name }}</td>
                                         <td data-field="name">{{ $item->part_number }}</td>
                                         <td data-field="name">{{ $item->item_location }}</td>

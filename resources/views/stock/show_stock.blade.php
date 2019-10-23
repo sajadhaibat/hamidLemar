@@ -10,12 +10,7 @@
 </head>
 <body class="theme-black">
 <!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img src="assets/images/logo.svg" width="48" height="48" alt="Alpino"></div>
-        <p>Please wait...</p>
-    </div>
-</div>
+
 
 <div class="overlay"></div><!-- Overlay For Sidebars -->
 
@@ -34,35 +29,29 @@
                         <h2><strong>Stock List</strong><small>See Stock Detail here.</small>  </h2>
                     </div>
                     <div class="body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a class="btn btn-primary btn-list" href="" data-toggle="modal" data-target="#stock-modal"> <i class="fa fa-plus"></i> Add Item</a>
-                            </div>
-                            <div class="col-md-8">
-                                @include('includes.successmessages')
-                            </div>
-                        </div>
+                       <h4>{{$item->name}} Records in stock</h4>
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                 <tr>
-                                    <th>Item</th>
-                                    <th>Available Quantity on Stock</th>
-                                    <th>Part Number</th>
-                                    <th>Item Location</th>
-                                    <th>Description</th>
-                                    <th>See Details </th>
+                                    <th>NO#</th>
+                                    <th> Quantity</th>
+                                    <th>insertion date</th>
+                                    <th>Parches Price</th>
+                                    <th>Sell Price</th>
+                                    <th>Description </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($items as $item)
+                                <?php $id=1; ?>
+                                @foreach($stocks as $item)
                                     <tr>
-                                        <td>{{ $item['name'] }}</td>
-                                        <td>{{$item->stocks->sum('quantity') }}</td>
-                                        <td>{{ $item->part_number }}</td>
-                                        <td>{{ $item->item_location }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td><a href="{{route('show_stock',$item->id)}}" class="btn btn-raised btn-primary btn-round waves-effect">See Recordsw</a></td>
+                                        <td>{{$id++}}</td>
+                                        <td>{{$item->quantity }}</td>
+                                        <td>{{$item->date}} </td>
+                                        <td>{{ $item->buy_amount }}</td>
+                                        <td>{{ $item->sale_amount }}</td>
+                                        <td>{{ $item->details }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -76,31 +65,6 @@
 
     </div>
 </section>
-
-
-<div class="modal fade " id="stock-modal" tabindex="-1" role="dialog" style="display: none;">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h3 class="modal-title">Add New Item</h3>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('stock.store')}}" enctype="multipart/form-data" method="post" id="labratory_form">
-                    <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>" />
-                    @include('includes.stock_form')
-
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-
-
-
-
-
-
 
 
 <!-- Jquery Core Js -->

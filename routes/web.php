@@ -24,4 +24,4 @@ Route::resource('staff', 'StaffController');
 Route::resource('expenses', 'DailyExpenseController');
 Route::resource('recevied_orders', 'ReceviedOrderController');
 
-Route::get('editcustomer/{id}','CustomerController@edit');
+Route::get('show_stock/{item_id}','MainController@show_stock')->name('show_stock');
