@@ -20,12 +20,12 @@
 </head>
 <body class="theme-black">
 <!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img src="assets/images/logo.svg" width="48" height="48" alt="Alpino"></div>
-        <p>Please wait...</p>
-    </div>
-</div>
+{{--<div class="page-loader-wrapper">--}}
+{{--    <div class="loader">--}}
+{{--        <div class="m-t-30"><img src="assets/images/logo.svg" width="48" height="48" alt="Alpino"></div>--}}
+{{--        <p>Please wait...</p>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <div class="overlay_menu">
     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-close"></i></button>
     <div class="container">
@@ -122,7 +122,7 @@
                     <div class="body">
                         <div class="row">
                             <div class="col-md-12">
-                                <a class="btn btn-primary btn-list" href="" data-toggle="modal" data-target="#customer-modal"> <i class="fa fa-plus"></i> Add New Customer</a>
+                                <a class="btn btn-primary btn-list" href="{{ route('recevied_orders.create') }}"> <i class="fa fa-plus"></i> Add New Order</a>
                             </div>
                         </div>
                         <hr>
@@ -134,31 +134,21 @@
                                     <th>Order Number</th>
                                     <th>Order Date</th>
                                     <th>Items</th>
-                                    <th>Quantity</th>
                                     <th>Receive </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($orders as $order)
+                                @foreach($res as $order)
                                     <tr>
-                                        <td>{{ $order->customer->name }}</td>
-                                        <td>{{ '#'.$order->order_number }}</td>
-                                        <td>{{ $order->order_date }}</td>
-                                        <td rowspan="{{$order}}">
-                                        @foreach(json_decode($order->items, true) as $items)
-                                        {{ $items }},
-                                        @endforeach
-                                        </td>
-                                        <td rowspan="{{$order}}">
-                                            @foreach(json_decode($order->quantity, true) as $key => $quantity)
-                                                {{ $quantity }},
+                                        <td>{{ ucfirst($order['customer_name']) }}</td>
+                                        <td>{{ '#'.$order['order_number'] }}</td>
+                                        <td>{{ $order['order_date'] }}</td>
+                                        <td >
+                                        @foreach($order['items'] as $item)
+                                            {{ ucfirst($item['name']). ' '}} <b> {{' '.$item['quantity'] }}</b><br><hr>
                                             @endforeach
                                         </td>
-                                        {{--                                        <td>{{ $customer->poc }}</td>--}}
-{{--                                        <td>{{ $customer->total_fee }}</td>--}}
-{{--                                        <td>{{ $customer->received_amount }}</td>--}}
-{{--                                        <td>{{ $customer->toal_fee - $customer->received_amount }}</td>--}}
-{{--                                        <td><button type="button" class="btn btn-raised btn-primary btn-round waves-effect">See Details</td>--}}
+                                        <td><button type="button" class="btn btn-raised btn-primary btn-round waves-effect">Recevied</button></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -173,43 +163,6 @@
     </div>
 </section>
 
-<div class="modal fade " id="customer-modal" tabindex="-1" role="dialog" style="display: none;">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h3 class="modal-title">Add New Customer</h3>
-            </div>
-            <div class="modal-body">
-                <form  action="{{route('customers.store')}}"  method="post">
-                    <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>" />
-                    <div class="row clearfix">
-
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="User or Company name" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Address</label>
-                                <input type="text" class="form-control" name="address" placeholder="Address" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Phone Number</label>
-                                <input type="number" class="form-control" name="phone" placeholder="Phone Number" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Point of Contact</label>
-                                <input type="text"  class="form-control" name="poc" placeholder="Point of Contact" required/>
-                            </div>
-                            <button type="submit" class="btn btn-raised btn-primary btn-round waves-effect">Save</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
 
 <!-- Jquery Core Js -->
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
