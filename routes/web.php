@@ -14,9 +14,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/' ,'MainController@index');
 Route::resource('customers', 'CustomersController');
 Route::resource('items', 'ItemsController');
 Route::resource('stock', 'StockController');

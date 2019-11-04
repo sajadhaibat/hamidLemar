@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\DailyExpense;
 use App\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DailyExpenseController extends Controller
 {
@@ -76,9 +78,12 @@ class DailyExpenseController extends Controller
      * @param  \App\DailyExpense  $dailyExpense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DailyExpense $dailyExpense)
+    public function update(Request $request)
     {
-        //
+        $customer = DailyExpense::findOrFail($request->id);
+        $customer->update($request->all());
+        Session::flash('message','Customer Edited Successfully!');
+        return redirect()->back();
     }
 
     /**
@@ -87,8 +92,11 @@ class DailyExpenseController extends Controller
      * @param  \App\DailyExpense  $dailyExpense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DailyExpense $dailyExpense)
+    public function destroy($id)
     {
-        //
+        $customer = DailyExpense::findOrFail($id);
+        $customer->delete();
+        Session::flash('message','Record Successfully Deleted!');
+        return  redirect()->back();
     }
 }
