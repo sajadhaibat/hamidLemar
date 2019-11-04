@@ -56,7 +56,7 @@
 
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label>Items</label>
+                                        <label>Select Customer</label>
                                         <select class="form-control" name="customer_id" required>
                                             <option selected disabled value="">Select Customer
                                             @foreach($customers as $customer)
@@ -88,6 +88,16 @@
                                     <div class="form-group">
                                         <label for="">Order Number</label>
                                         <input type="text" class="form-control" name="order_number" placeholder="Order Number" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Total</label>
+                                        <input type="text" class="form-control" name="order_number" placeholder="Total Price" required/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="">Invoice Type</label>
+                                        <input type="radio" class="form-control" name="order_number" placeholder="Loan Amount" required/>
+                                        <input type="radio" class="form-control" name="order_number" placeholder="Loan Amount" required/>
                                     </div>
 {{--                                    <div class="form-group">--}}
 {{--                                        <label for="">Sale Amount</label>--}}
